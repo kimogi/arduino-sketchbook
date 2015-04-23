@@ -1,7 +1,6 @@
 #define ADJ_STEP 1
 #define ZERO_PWM 130
 
-
 class ESC {
 private:
 	byte _pwmValue;
