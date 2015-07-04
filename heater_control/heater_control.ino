@@ -1,5 +1,5 @@
-#define SWING_PIN 2
-#define POWER_PIN 4
+#define SWING_PIN 4
+#define POWER_PIN 2
 #define HEAT_PIN 6
 
 void switch_pin(int pin)
