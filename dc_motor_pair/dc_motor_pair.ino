@@ -11,13 +11,13 @@ int pinC1 = 12;
 int pinC2 = 13;
 
 void setup() {
-  Serial.begin (9600);
-	pinMode (pinA1, OUTPUT);
+    Serial.begin (9600);
+    pinMode (pinA1, OUTPUT);
 	pinMode (pinA2, OUTPUT); 
 	pinMode (pinB1, OUTPUT);
 	pinMode (pinB2, OUTPUT);
-  pinMode (pinC1, OUTPUT);
-  pinMode (pinC2, OUTPUT);
+    pinMode (pinC1, OUTPUT);
+    pinMode (pinC2, OUTPUT);
 }
 
 void loop() {

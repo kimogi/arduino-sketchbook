@@ -10,48 +10,29 @@ int pinB2 = 10;
 int pinC1 = 12;
 int pinC2 = 13;
 
-#define CONSOLE_PREF "micro_core$ "
-#define CONSOLE_CMD_LEN 255
-
-char in_data[CONSOLE_CMD_LEN];
 char in_char = -1;
-int in_index = 0;
 
-void do_console(void) 
+char do_console(void) 
 {
     if (Serial.available() > 0) 
     {
-        if (in_index < CONSOLE_CMD_LEN-1)
+        in_char = Serial.read();
+        if (in_char == 13)
         {
-            in_char = Serial.read();
-            in_data[in_index] = in_char;
-            in_index++;
-            in_data[in_index] = '\0';
-        }
-        else
-        {
-            //stack
-        }
-        
-        if (in_char == 13) 
-        {
-            for (int i = 0; i < CONSOLE_CMD_LEN-1; i++) 
-            {
-                in_data[i] = 0;
-            }
-            Serial.println(in_char); Serial.print(CONSOLE_PREF);
+            Serial.println(in_char);
         }
         else
         {
             Serial.print(in_char);
         }
+        return in_char;
     }
+    return 0;
 }
 
 void setup() 
 {
     Serial.begin (9600);
-    Serial.print(CONSOLE_PREF);
     pinMode (pinA1, OUTPUT);
 	pinMode (pinA2, OUTPUT); 
 	pinMode (pinB1, OUTPUT);
@@ -62,33 +43,30 @@ void setup()
 
 void loop() 
 {
-    do_console();
-/*
-        if (r_byte == 'a')
-        {
+    switch(do_console())
+    {
+        case 'a':
             motorAforward(140);
             delay (1000);
-            motorAstop();
-        }
-        else if (r_byte == 'b')
-        {
+            motorAstop();                       
+            break;
+        case 'b':
             motorBforward(140);
             delay (1000);
             motorBstop();
-        }
-        else if (r_byte == 'c')
-        {
+            break;
+        case 'c':
             motorCforward(140);
             delay (1000);
             motorCstop();
-        }
-*/
+            break;
+    }
 }
 
 void motorAforward(int pwm) 
 {
-	analogWrite (pinA1, LOW);
-	analogWrite (pinA2, pwm);
+    analogWrite (pinA1, LOW);
+    analogWrite (pinA2, pwm);
 }
 
 void motorBforward(int pwm) 
