@@ -1,10 +1,10 @@
 //Motor A
-int pinA1 = 7;
-int pinA2 = 8;
+int pinA1 = 8;
+int pinA2 = 9;
 
 //Motor B
-int pinB1 = 9;
-int pinB2 = 10;
+int pinB1 = 10;
+int pinB2 = 11;
 
 //Motor С
 int pinC1 = 12;
@@ -43,6 +43,7 @@ void setup()
 
 void loop() 
 {
+#if 0
     switch(do_console())
     {
         case 'a':
@@ -61,6 +62,25 @@ void loop()
             motorCstop();
             break;
     }
+#else
+    motorAforward(40);
+    motorBforward(40);
+    motorCforward(40);
+    delay (1000);
+    motorAstop();
+    motorBstop();
+    motorCstop();
+
+    delay(1000);
+
+    motorAbackward(40);
+    motorBbackward(40);
+    motorCbackward(40);    
+    delay (1000);
+    motorAstop();
+    motorBstop();
+    motorCstop();
+#endif
 }
 
 void motorAforward(int pwm) 

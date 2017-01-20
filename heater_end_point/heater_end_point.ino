@@ -5,7 +5,7 @@ SoftwareSerial zSerial(2, 3); // RX, TX
 #define WATT_PIN 7
 
 #define SWING_CMD "swg"
-#define POWER_CMD "pwd"
+#define POWER_CMD "pwr"
 #define WATT_CMD "wtt"
 
 String serialData = "";

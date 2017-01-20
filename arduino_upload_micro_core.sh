@@ -22,3 +22,4 @@ done
 [[ $CMD ]] || usage
 
 arduino --board Microduino:avr:644pa16m $CMD --upload $FILE
+#arduino --upload $FILE --board microduino:avr:644pa16m $CMD
