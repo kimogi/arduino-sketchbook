@@ -1,0 +1,6 @@
+Name							UUID					CHAR
+
+Hydroponic light				aaa0					aaa1
+Hydroponic pump					aab0					aab1
+
+Eventair heater					ffb0					ffb1
